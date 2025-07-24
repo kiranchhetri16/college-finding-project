@@ -10,7 +10,7 @@ const authRouter: RouteObject[] = [
 ];
 
 const userRouter: RouteObject[] = [
-  { path: "/home", element: <HomePage /> },
+  { path: "/", element: <HomePage /> },
 
 ];
 
