@@ -5,12 +5,15 @@ import type{
 } from "react-router-dom";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from './pages/userpages/homepage/HomePage'
-const authRouter: RouteObject[] = [
+import CollegeCard from "./components/Cart";
+import CollegeDetail from "./pages/CollegeDetailpage";
 
+const authRouter: RouteObject[] = [
+{path:"/collegedetail", element:<CollegeDetail />}
 ];
 
 const userRouter: RouteObject[] = [
-  { path: "/", element: <HomePage /> },
+  { path: "/", element: <CollegeCard /> },
 
 ];
 
