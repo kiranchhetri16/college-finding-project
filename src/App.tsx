@@ -1,17 +1,17 @@
-import type{
- 
-  RouteObject,
-
-} from "react-router-dom";
+import type { RouteObject } from "react-router-dom";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from './pages/userpages/homepage/HomePage'
+import Dashboard from "./pages/userpages/homepage/Dashboard";
+import Login from "./pages/userpages/authpages/Login";
+import Signup from "./pages/userpages/authpages/Signup";
+import Guide from "./pages/userpages/homepage/Guide";
 const authRouter: RouteObject[] = [
-
+  { path: "/", element: <Login /> },
+  { path: "/signup", element: <Signup /> },
 ];
 
 const userRouter: RouteObject[] = [
-  { path: "/", element: <HomePage /> },
-
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/guide", element: <Guide /> },
 ];
 
 const router = createBrowserRouter([...authRouter, ...userRouter]);
