@@ -9,11 +9,12 @@ import CollegeCard from "./components/Cart";
 import CollegeDetail from "./pages/CollegeDetailpage";
 
 const authRouter: RouteObject[] = [
-{path:"/collegedetail", element:<CollegeDetail />}
+{path:"/college", element:<CollegeDetail />}
 ];
 
 const userRouter: RouteObject[] = [
   { path: "/", element: <CollegeCard /> },
+  {path:"/college", element:<CollegeDetail />}
 
 ];
 
