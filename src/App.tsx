@@ -1,5 +1,17 @@
 import type { RouteObject } from "react-router-dom";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import HomePage from './pages/userpages/homepage/HomePage'
+import CollegeCard from "./components/Cart";
+import CollegeDetail from "./pages/CollegeDetailpage";
+
+const authRouter: RouteObject[] = [
+{path:"/college", element:<CollegeDetail />}
+];
+
+const userRouter: RouteObject[] = [
+  { path: "/", element: <CollegeCard /> },
+  {path:"/college", element:<CollegeDetail />},
 import Dashboard from "./pages/userpages/homepage/Dashboard";
 import Login from "./pages/userpages/authpages/Login";
 import Signup from "./pages/userpages/authpages/Signup";
@@ -12,6 +24,7 @@ const authRouter: RouteObject[] = [
 const userRouter: RouteObject[] = [
   { path: "/dashboard", element: <Dashboard /> },
   { path: "/guide", element: <Guide /> },
+
 ];
 
 const router = createBrowserRouter([...authRouter, ...userRouter]);
