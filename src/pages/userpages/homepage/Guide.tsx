@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import UserLayout from "../../../components/user/UserLayout";
 
 interface GuideCardProps {
   title: string;
@@ -95,50 +96,52 @@ const Guide: React.FC = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">Guides</h1>
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Main Content */}
-        <div className="flex-1 space-y-16 overflow-y-auto">
-          {sections.map((section) => (
-            <section key={section.id} id={section.id}>
-              <h2 className="text-2xl font-semibold text-purple-800 border-l-4 border-purple-500 pl-4 mb-6">
-                {section.label}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {guides.map((guide, idx) => (
-                  <GuideCard key={idx} {...guide} />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-
-        {/* Side Navigation */}
-        <aside className="w-full lg:w-64 shrink-0">
-          <div className="border rounded-xl p-4 sticky top-24">
-            <h3 className="text-sm text-gray-600 mb-2">Jump to section:</h3>
-            <ul className="space-y-2">
-              {sections.map((section) => (
-                <li key={section.id}>
-                  <a
-                    href={`#${section.id}`}
-                    onClick={() => setActiveSection(section.id)}
-                    className={`block p-2 rounded-md text-sm transition-all ${
-                      activeSection === section.id
-                        ? "bg-purple-100 border-l-4 border-purple-500 font-semibold text-purple-800 pl-2"
-                        : "text-gray-700 hover:bg-purple-50"
-                    }`}
-                  >
-                    {section.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+    <UserLayout>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-gray-800 mb-8">Guides</h1>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main Content */}
+          <div className="flex-1 space-y-16 overflow-y-auto">
+            {sections.map((section) => (
+              <section key={section.id} id={section.id}>
+                <h2 className="text-2xl font-semibold text-purple-800 border-l-4 border-purple-500 pl-4 mb-6">
+                  {section.label}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {guides.map((guide, idx) => (
+                    <GuideCard key={idx} {...guide} />
+                  ))}
+                </div>
+              </section>
+            ))}
           </div>
-        </aside>
+
+          {/* Side Navigation */}
+          <aside className="w-full lg:w-64 shrink-0">
+            <div className="border rounded-xl p-4 sticky top-24">
+              <h3 className="text-sm text-gray-600 mb-2">Jump to section:</h3>
+              <ul className="space-y-2">
+                {sections.map((section) => (
+                  <li key={section.id}>
+                    <a
+                      href={`#${section.id}`}
+                      onClick={() => setActiveSection(section.id)}
+                      className={`block p-2 rounded-md text-sm transition-all ${
+                        activeSection === section.id
+                          ? "bg-purple-100 border-l-4 border-purple-500 font-semibold text-purple-800 pl-2"
+                          : "text-gray-700 hover:bg-purple-50"
+                      }`}
+                    >
+                      {section.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
       </div>
-    </div>
+    </UserLayout>
   );
 };
 
