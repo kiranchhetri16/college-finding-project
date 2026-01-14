@@ -52,7 +52,7 @@ const FindPrograms = () => {
 
   return (
     <UserLayout>
-      <div className="p-6 max-w-4xl mx-auto">
+      <div className=" py-12 px-6 max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-4">Find Programs</h2>
         <form
           onSubmit={handleSearch}
